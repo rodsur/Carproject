@@ -7,6 +7,7 @@ class car(object):
     alloweddistance = 20
     nextCar = None
     speedAim = 0
+    topAccel = 10
     def __init__(self,speed=0, position=0,maxspeed=100,mode="automatic"):
         self.speed = speed
         self.position = position
@@ -64,12 +65,13 @@ class car(object):
         
     def doAccel(self):
         self.speed = self.speed + self.accel
-            
+
     def act(self):
         if self.mode == "automatic":
             if self.getDistanceForward(self.nextCar) < self.alloweddistance:
                 self.setAccel(-2)
             elif self.speed < self.speedAim:
+                self.setAccel(2)
                 self.doAccel()
                 self.doDrive()
             elif self.speed == self.speedAim:

@@ -36,7 +36,6 @@ class Test(unittest.TestCase):
     def testCarAccel(self):
         print("Starting acceleration test")
         car1 = car.car(mode="automatic")
-        car1.setAccel(2)
         Test.assertEqual(self, 0, car1.getPosition(), "car 1 was not at 0")
         car1.setSpeedAim(50)
         car1.act()
@@ -56,6 +55,7 @@ class Test(unittest.TestCase):
     
     def testKeepDistance(self):
         print("Starting acceleration test")
+        
         
 
 if __name__ == "__main__":
