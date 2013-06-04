@@ -35,7 +35,7 @@ class car(object):
     
     def getDistanceForward(self, othercar):
         if othercar == None:
-            return 0
+            return 999
         else:
             distance = othercar.getPosition() - self.getPosition()
             return distance
