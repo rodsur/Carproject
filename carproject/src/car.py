@@ -4,7 +4,7 @@ class car(object):
     accel = 0
     maxspeed = 100
     mode = "automatic"
-    alloweddistance = 20
+    alloweddistance = 40
     nextCar = None
     speedAim = 0
     topAccel = 10
@@ -70,6 +70,8 @@ class car(object):
         if self.mode == "automatic":
             if self.getDistanceForward(self.nextCar) < self.alloweddistance:
                 self.setAccel(-2)
+                self.doAccel()
+                self.doDrive()
             elif self.speed < self.speedAim:
                 self.setAccel(2)
                 self.doAccel()

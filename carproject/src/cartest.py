@@ -54,7 +54,19 @@ class Test(unittest.TestCase):
         Test.assertEqual(self, 800, car1.getPosition(), "car has not moved after achieving max speed")
     
     def testKeepDistance(self):
-        print("Starting acceleration test")
+        print("Starting distancing test")
+        car1 = car.car(mode="automatic")
+        car2 = car.car(mode="override",position=20,speed=20)
+        car1.setNextCar(car2)
+        car1.setSpeedAim(40)
+        count = 0
+        while (count < 50):
+            print(count)
+            print("Car 1 position: " + str(car1.position) + " speed: " + str(car1.getSpeed()))
+            print("Car 2 position: " + str(car2.position) + " speed: " + str(car2.getSpeed()))
+            car1.act()
+            car2.act()
+            count = count + 1
         
         
 
